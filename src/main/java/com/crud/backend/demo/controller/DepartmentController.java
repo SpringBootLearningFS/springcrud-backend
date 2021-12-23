@@ -66,7 +66,7 @@ public class DepartmentController {
 	public ResponseEntity<Map<String, Boolean>> deleteDepartment(@PathVariable Long depId) throws DepartmentNotFoundException{
 		Department department=departmentRepo.findById(depId)
 				.orElseThrow(()->new DepartmentNotFoundException("department Id not found"+depId));
-		
+		System.out.println("Done");
 		departmentRepo.delete(department);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
